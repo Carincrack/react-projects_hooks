@@ -1,9 +1,9 @@
-import { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useState } from 'react';
 
 // Crear el contexto de tema
 const ThemeContext = createContext();
 
-// Proveedor de tema como componente
+// Proveedor de tema como componente, sin JS
 export function ThemeProvider({ children }) {
   const [theme, setTheme] = useState('dark'); // Tema inicial: oscuro
 
@@ -12,10 +12,11 @@ export function ThemeProvider({ children }) {
     setTheme(prev => (prev === 'dark' ? 'light' : 'dark'));
   };
 
-  return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
-      {children}
-    </ThemeContext.Provider>
+  // Usar React.createElement en lugar de JS
+  return React.createElement(
+    ThemeContext.Provider,
+    { value: { theme, toggleTheme } },
+    children
   );
 }
 

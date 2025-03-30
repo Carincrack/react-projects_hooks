@@ -1,5 +1,5 @@
 import React from 'react';
-import { ThemeProvider, useTheme } from './hooks/useTheme.jsx'; // Ajusta la importación
+import { ThemeProvider, useTheme } from './hooks/useTheme.js'; // Ajusta la importación
 import './index.css';
 
 function ThemeDisplay() {
